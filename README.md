@@ -30,6 +30,47 @@ Este projeto é uma implementação em Java baseada no estudo de caso apresentad
 - **Linguagem**: Java
 - **IDE recomendada**: Eclipse
 
+  ```mermaid
+   classDiagram
+    class Pessoa {
+        +Nome: String
+        +CPF: String
+        +DataNascimento: Date
+    }
+    
+    class Medico {
+        +CRM: String
+        +Endereco: String
+        +TelefoneCelular: String
+    }
+    
+    class Mae {
+        
+        +Sobrenome: String
+        +DataNascimento: Date
+        +Endereco: String
+        +Telefone: String
+    }
+    
+    class Bebe {
+        +Nome: String
+        +DataNascimento: Date
+    }
+    
+    class Medicamento {
+        +Descricao: String
+        +Quantidade: int
+        +UnidadeMedida: String
+        +Estoque: int
+    }
+    
+    Pessoa <|-- Medico
+    Pessoa <|-- Mae
+    Pessoa <|-- Bebe
+    Medico "1" --> "0..*" Bebe : Faz parte
+    Mae "1" --> "0..*" Bebe : Possui
+    Bebe "0..*" --> "0..*" Medicamento : Recebe 
+ 
 ## Como Executar o Projeto
 1. Clone este repositório:
    
